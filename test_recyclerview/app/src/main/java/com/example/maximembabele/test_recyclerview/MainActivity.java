@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new MyAdapter());
-
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
