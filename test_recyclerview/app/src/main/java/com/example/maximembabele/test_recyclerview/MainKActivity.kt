@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 /*
 - If you do not specify any visibility modifier, public is used by default, which means that your declarations will be visible everywhere;
@@ -23,6 +24,7 @@ class MainKActivity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = MyAdapter()
+        Toast.makeText(this,"KOTLIN TEST",Toast.LENGTH_LONG).show()
     }
 
     internal inner class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {

@@ -1,5 +1,6 @@
 package com.example.maximembabele.test_recyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new MyAdapter());
+    }
+
+    public void open(View view){
+        startActivity(new Intent(this, MainKActivity.class));
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
