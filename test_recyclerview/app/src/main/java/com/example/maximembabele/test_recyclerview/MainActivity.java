@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         @NonNull @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
             MyViewHolder viewHolder = new MyViewHolder(view);
             return viewHolder;
         }
