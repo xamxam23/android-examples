@@ -24,17 +24,32 @@ public class MainActivity extends AppCompatActivity {
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         String[] data = {"one", "two", "three", "four", "five"};
+        static final int TYPE_HEADER = 0, TYPE_ITEM = 1;
 
         @NonNull @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
-            MyViewHolder viewHolder = new MyViewHolder(view);
-            return viewHolder;
+            switch (viewType) {
+                case TYPE_HEADER:
+                    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.header, parent, false);
+                    return new MyViewHolder(view);
+                case TYPE_ITEM:
+                    view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+                    return new MyViewHolder(view);
+            }
+            throw new IllegalArgumentException("Invalid View Type");
         }
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-            holder.setText(data[position]);
+            if (holder instanceof MyViewHolderItem) {
+                ((MyViewHolderItem) holder).setText(data[position]);
+            } else if(holder instanceof MyViewHolderHeader) {
+                // Header
+            }
+        }
+
+        @Override public int getItemViewType(int position) {
+            return position == 0 ? TYPE_HEADER: TYPE_ITEM;
         }
 
         @Override
@@ -42,10 +57,22 @@ public class MainActivity extends AppCompatActivity {
             return data.length;
         }
 
+        class MyViewHolderHeader  extends MyViewHolder{
+            public MyViewHolderHeader(View itemView) {
+                super(itemView);
+            }
+        }
+
         class MyViewHolder extends RecyclerView.ViewHolder {
+            public MyViewHolder(View itemView) {
+                super(itemView);
+            }
+        }
+
+        class MyViewHolderItem extends MyViewHolder {
             TextView textView;
 
-            public MyViewHolder(View itemView) {
+            public MyViewHolderItem(View itemView) {
                 super(itemView);
                 textView = itemView.findViewById(R.id.tv);
             }

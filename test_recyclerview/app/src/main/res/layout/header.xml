@@ -5,17 +5,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/colorPrimaryDark" />
+
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Hello World!"
-        android:textSize="16pt" />
+        android:text="Header"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24pt" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorAccent" />
+        android:layout_height="5dp"
+        android:background="@color/colorPrimaryDark" />
 </LinearLayout>
