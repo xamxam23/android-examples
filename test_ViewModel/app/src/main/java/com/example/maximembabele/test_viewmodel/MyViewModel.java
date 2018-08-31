@@ -1,22 +1,27 @@
 package com.example.maximembabele.test_viewmodel;
 
 import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
 /**
  * The ViewModel class allows data to survive configuration changes such as screen rotations.
  */
-public class MyViewModel  extends ViewModel{
+public class MyViewModel extends ViewModel {
 
-    private MutableLiveData<List<User>> users;
-    public LiveData<List<User>> getUsers() {
-        if (users == null) {
-            users = new MutableLiveData<List<Users>>();
-            loadUsers();
-        }
-        return users;
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    private void loadUsers() {
-        // Do an asynchronous operation to fetch users.
+    public String getName() {
+        return name;
+    }
+
+    @Override protected void onCleared() {
+        Log.d("x-x", "onCleared");
+        super.onCleared();
     }
 }
+
+
