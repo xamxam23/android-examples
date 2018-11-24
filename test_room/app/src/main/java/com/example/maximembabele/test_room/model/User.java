@@ -15,6 +15,10 @@ public class User {
         firstName = first;
         lastName = last;
     }
+    public User(int uid, String first, String last) {
+        this(first, last);
+        this.uid = uid;
+    }
 
     @ColumnInfo(name = "first_name")
     public String firstName;
