@@ -27,6 +27,13 @@ public class MainActivity extends BaseActivity implements IMainView {
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
         });
+
+        findViewById(R.id.button_two).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ThirdActivity.class));
+            }
+        });
     }
 
     @Override public void onMainLoaded() {
